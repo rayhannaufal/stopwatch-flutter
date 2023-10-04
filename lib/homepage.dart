@@ -90,90 +90,7 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   dataAnggota(),
                   SizedBox(height: 20,),
-                  Text(
-                    "Stop Watch",
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold
-                    ),
-                  ),
-                  SizedBox(height: 10,),
-                  Text(
-                    '$digitMinute:$digitSecond.$digitMilisecond',
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                      color: (started) ? Colors.red : Colors.teal
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  Container(
-                    height: MediaQuery.sizeOf(context).width,
-                    decoration: BoxDecoration(
-                      color: Colors.teal[50],
-                      borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ListView.builder(
-                        itemCount: laps.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "Lap ke-${index+1}",
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.teal, 
-                                    fontWeight: FontWeight.bold
-                                  )
-                                ),
-                                Text(
-                                  "${laps[index]}", 
-                                  style: TextStyle(
-                                    fontSize: 14,
-                                    color: Colors.teal, 
-                                    fontWeight: FontWeight.bold
-                                  )
-                                ),
-                              ],
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 20,),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ElevatedButton(onPressed: () {
-                        (!started) ? start() : stop();
-                      },style: ElevatedButton.styleFrom(
-                        backgroundColor: (started) ? Colors.red : Colors.teal
-                      ), 
-                      child: Text((!started) ? "Start" : "Stop")),
-                      SizedBox(width: 10),
-                      OutlinedButton(onPressed: () {
-                        addLaps();
-                      }, child: Icon(Icons.flag)),
-                      SizedBox(width: 10),
-                      ElevatedButton(onPressed: () {
-                        reset();
-                      }, child: Text("Reset")),
-                    ],
-                  ),
-                  SizedBox(height: 50,),
-                  Text(
-                    "Recomended Website",
-                    style: TextStyle(
-                      fontSize: 26,
-                      fontWeight: FontWeight.bold
-                    ),
-                  ),
+                  stopWatch(),
                   SizedBox(height: 10,),
                   siteLink()
                 ],
@@ -182,6 +99,97 @@ class _HomePageState extends State<HomePage> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget stopWatch() {
+    return Column(
+      children: [
+        Text(
+          "Stop Watch",
+          style: TextStyle(
+            fontSize: 26,
+            fontWeight: FontWeight.bold
+          ),
+        ),
+        SizedBox(height: 10,),
+        Text(
+          '$digitMinute:$digitSecond.$digitMilisecond',
+          style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            color: (started) ? Colors.red : Colors.teal
+          ),
+        ),
+        SizedBox(height: 20,),
+        Container(
+          height: MediaQuery.sizeOf(context).width,
+          decoration: BoxDecoration(
+            color: Colors.teal[50],
+            borderRadius: BorderRadius.circular(20)
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListView.builder(
+              itemCount: laps.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Lap ke-${index+1}",
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.teal, 
+                          fontWeight: FontWeight.bold
+                        )
+                      ),
+                      Text(
+                        "${laps[index]}", 
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.teal, 
+                          fontWeight: FontWeight.bold
+                        )
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ),
+        SizedBox(height: 20,),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(onPressed: () {
+              (!started) ? start() : stop();
+            },style: ElevatedButton.styleFrom(
+              backgroundColor: (started) ? Colors.red : Colors.teal
+            ), 
+            child: Text((!started) ? "Start" : "Stop")),
+            SizedBox(width: 10),
+            OutlinedButton(onPressed: () {
+              addLaps();
+            }, child: Icon(Icons.flag)),
+            SizedBox(width: 10),
+            ElevatedButton(onPressed: () {
+              reset();
+            }, child: Text("Reset")),
+          ],
+        ),
+        SizedBox(height: 50,),
+        Text(
+          "Recomended Website",
+          style: TextStyle(
+            fontSize: 26,
+            fontWeight: FontWeight.bold
+          ),
+        )
+      ],
     );
   }
 
