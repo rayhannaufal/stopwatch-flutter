@@ -80,6 +80,7 @@ class _HomePageState extends State<HomePage> {
           'Kelompok 2'
         ),
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -118,14 +119,14 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
-            color: (started) ? Colors.red : Colors.teal
+            color: (started) ? Colors.red : Colors.indigo
           ),
         ),
         SizedBox(height: 20,),
         Container(
           height: MediaQuery.sizeOf(context).width,
           decoration: BoxDecoration(
-            color: Colors.teal[50],
+            color: Colors.indigo[50],
             borderRadius: BorderRadius.circular(20)
           ),
           child: Padding(
@@ -142,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                         "Lap ke-${index+1}",
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.teal, 
+                          color: Colors.indigo, 
                           fontWeight: FontWeight.bold
                         )
                       ),
@@ -150,7 +151,7 @@ class _HomePageState extends State<HomePage> {
                         "${laps[index]}", 
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.teal, 
+                          color: Colors.indigo, 
                           fontWeight: FontWeight.bold
                         )
                       ),
@@ -168,7 +169,7 @@ class _HomePageState extends State<HomePage> {
             ElevatedButton(onPressed: () {
               (!started) ? start() : stop();
             },style: ElevatedButton.styleFrom(
-              backgroundColor: (started) ? Colors.red : Colors.teal
+              backgroundColor: (started) ? Colors.red : Colors.indigo
             ), 
             child: Text((!started) ? "Start" : "Stop")),
             SizedBox(width: 10),
@@ -205,7 +206,7 @@ class _HomePageState extends State<HomePage> {
               Icon(
                 Icons.person,
                 size: 150,
-                color: Colors.teal,
+                color: Colors.indigo,
               ), 
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -232,7 +233,7 @@ class _HomePageState extends State<HomePage> {
               Icon(
                 Icons.person,
                 size: 150,
-                color: Colors.teal,
+                color: Colors.indigo,
               ), 
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -257,7 +258,7 @@ class _HomePageState extends State<HomePage> {
               Icon(
                 Icons.person,
                 size: 150,
-                color: Colors.teal,
+                color: Colors.indigo,
               ), 
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
