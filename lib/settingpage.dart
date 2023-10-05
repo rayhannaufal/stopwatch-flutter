@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tugas2/loginpage.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});

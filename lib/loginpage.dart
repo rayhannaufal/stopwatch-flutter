@@ -18,99 +18,120 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigo,
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Icon(Icons.timer_sharp,size: 110,color: (isLogin) ? Colors.indigo : Colors.red,),
-            SizedBox(height: 10,),
-            Text(
-              'Login Page',
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w500,
-                color: (isLogin) ? Colors.grey : Colors.redAccent
-              ),
+          Container(
+            height: 300,
+            decoration: BoxDecoration(
+              // color: Colors.amber
             ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Container(
-              padding: EdgeInsets.all(20),
-              height: MediaQuery.sizeOf(context).height/3,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(height: 20,),
-                  TextFormField(
-                    enabled: true,
-                    onChanged: (value) {
-                      username = value;
-                    },
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.person),
-                      hintText: 'Username',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: (isLogin) ? Colors.grey : Colors.red)
-                      )
-                    ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'GROUP 5',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
                   ),
-                  SizedBox(height: 10,),
-                  TextFormField(
-                    enabled: true,
-                    onChanged: (value) {
-                      password = value;
-                    },
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      prefixIcon: Icon(Icons.lock),
-                      hintText: 'Password',
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        borderSide: BorderSide(color: (isLogin) ? Colors.grey : Colors.red)
-                      )
-                    ),
+                ),
+                SizedBox(height: 10,),
+                Icon(
+                  Icons.people
+                  ,size: 110,color: Colors.white,
+                ),
+                Text(
+                  'Login for Access',
+                  style: TextStyle(
+                    fontSize: 20,
+                    color: Colors.white
                   ),
-                  SizedBox(height: 30,),
-                  ElevatedButton(
-                    onPressed: () {
-                      String text = '';
-                      if (username == "admin" && password == "admin") {
-                        setState(() {
-                          isLogin = true;
-                          text = 'Login Berhasil';
-                        });
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage(),));
-                      } else {
-                        setState(() {
-                          isLogin = false;
-                          text = 'Login Gagal';
-                        });
-                      }
-                      SnackBar snackBar = SnackBar(
-                        content: Text(text)
-                      );
-                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    }, 
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: (isLogin) ? Colors.indigo : Colors.red,
-                      minimumSize: Size.fromHeight(55),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)
-                      )
+                ),
+                SizedBox(height: 10,),
+
+              ],
+            ),
+          ),
+          Container(
+            padding: EdgeInsets.all(20),
+            height: MediaQuery.sizeOf(context).height/2,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.vertical(top: Radius.circular(20))
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(height: 20,),
+                TextFormField(
+                  enabled: true,
+                  onChanged: (value) {
+                    username = value;
+                  },
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.person),
+                    hintText: 'Username',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)
                     ),
-                    child: Text('Login'))
-                ],
-              ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: (isLogin) ? Colors.grey : Colors.red)
+                    )
+                  ),
+                ),
+                SizedBox(height: 10,),
+                TextFormField(
+                  enabled: true,
+                  onChanged: (value) {
+                    password = value;
+                  },
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock),
+                    hintText: 'Password',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10),
+                      borderSide: BorderSide(color: (isLogin) ? Colors.grey : Colors.red)
+                    )
+                  ),
+                ),
+                SizedBox(height: 30,),
+                ElevatedButton(
+                  onPressed: () {
+                    String text = '';
+                    if (username == "admin" && password == "admin") {
+                      setState(() {
+                        isLogin = true;
+                        text = 'Login Berhasil';
+                      });
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => MainPage(),));
+                    } else {
+                      setState(() {
+                        isLogin = false;
+                        text = 'Login Gagal';
+                      });
+                    }
+                    SnackBar snackBar = SnackBar(
+                      content: Text(text)
+                    );
+                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  }, 
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: (isLogin) ? Colors.indigo : Colors.red,
+                    minimumSize: Size.fromHeight(55),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)
+                    )
+                  ),
+                  child: Text('Login'))
+              ],
             ),
           ),
         ],
