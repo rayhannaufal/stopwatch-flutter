@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tugas2/homepage.dart';
-import 'package:flutter_tugas2/settingpage.dart';
+import 'package:flutter_tugas2/page/homepage.dart';
+import 'package:flutter_tugas2/page/settingpage.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

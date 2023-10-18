@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tugas2/loginpage.dart';
+import 'package:flutter_tugas2/page/loginpage.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(primarySwatch: Colors.indigo),
       debugShowCheckedModeBanner: false,
       title: 'Tugas 2',
-      home: LoginPage(),
+      home: const LoginPage(),
     );
   }
 }

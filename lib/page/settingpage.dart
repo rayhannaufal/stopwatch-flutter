@@ -19,6 +19,10 @@ class SeettingPageState extends State<SettingPage> {
             SizedBox(height: 10,),
             ElevatedButton(onPressed: () {
               Navigator.pop(context);
+              SnackBar snackBar = SnackBar(
+                content: Text('Berhasil Logout') 
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }, child: Text('Logout'))
           ],
         ),

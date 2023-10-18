@@ -2,14 +2,14 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
-class StopWatch extends StatefulWidget {
-  const StopWatch({super.key});
+class StopWatchPage extends StatefulWidget {
+  const StopWatchPage({super.key});
 
   @override
-  State<StopWatch> createState() => _StopWatchState();
+  State<StopWatchPage> createState() => _StopWatchPageState();
 }
 
-class _StopWatchState extends State<StopWatch> {
+class _StopWatchPageState extends State<StopWatchPage> {
 
   int milisecond = 0, second = 0, minute = 0;
   String digitMilisecond = '0', digitSecond = '00', digitMinute = '00';

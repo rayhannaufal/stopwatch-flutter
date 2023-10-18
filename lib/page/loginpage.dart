@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_tugas2/mainpage.dart';
+import 'package:flutter_tugas2/page/mainpage.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -98,7 +98,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
-                      borderSide: BorderSide(color: (isLogin) ? Colors.grey : Colors.red)
+                      borderSide: BorderSide(
+                        color: isLogin ? Colors.grey : Colors.red
+                      )
                     )
                   ),
                 ),
@@ -119,18 +121,26 @@ class _LoginPageState extends State<LoginPage> {
                       });
                     }
                     SnackBar snackBar = SnackBar(
-                      content: Text(text)
+                      content: Text(text),
+                      backgroundColor: !isLogin ? Colors.red[700] : null,
                     );
+                    ScaffoldMessenger.of(context).clearSnackBars();
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   }, 
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: (isLogin) ? Colors.indigo : Colors.red,
+                    backgroundColor: (isLogin) ? Colors.indigo : Colors.red[700],
                     minimumSize: Size.fromHeight(55),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)
                     )
                   ),
-                  child: Text('Login'))
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold
+                    ),
+                  )
+                )
               ],
             ),
           ),

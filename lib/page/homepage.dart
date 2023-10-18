@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_tugas2/timer_page.dart';
-import 'package:flutter_tugas2/web_page.dart';
+import 'package:flutter_tugas2/page/stopwatch_page.dart';
+import 'package:flutter_tugas2/page/tourism_page.dart';
+import 'package:flutter_tugas2/page/web_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -51,14 +52,14 @@ class _HomePageState extends State<HomePage> {
                           Navigator.push(
                             context, 
                             MaterialPageRoute(
-                              builder:(context) => StopWatch(), 
+                              builder:(context) => StopWatchPage(), 
                             )
                           );
 
                         },
                         child: Card(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)
+                            borderRadius: BorderRadius.circular(10)
                           ),
                           child: Container(
                             height: MediaQuery.sizeOf(context).height/12,
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: Card(
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)
+                            borderRadius: BorderRadius.circular(10)
                           ),
                           child: Container(
                             height: MediaQuery.sizeOf(context).height/12,
@@ -118,6 +119,38 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(
+                              builder:(context) => TourismPage(), 
+                            )
+                          );
+                        },
+                        child: Card(
+                          child: Container(
+                            height: MediaQuery.sizeOf(context).height/12,
+                            padding: EdgeInsets.all(10),
+                            child: Row(
+                              children: [
+                                Icon(
+                                  Icons.place,
+                                  size: 36,
+                                  color: Colors.indigo,
+                                ),
+                                SizedBox(width: 30,),
+                                Text(
+                                  "Tourism Place", 
+                                  style: TextStyle(
+                                    fontSize: 20
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 )
